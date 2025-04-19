@@ -1,0 +1,22 @@
+name: File Sync
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  file_sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetching Local Repository
+        uses: actions/checkout@main
+      - name: File Sync
+        uses: timriley/github-action-file-sync@experiment
+        with:
+          REPOSITORIES: |
+            timriley/file-sync-target-repo@main
+          FILES: |
+            sync/README.md.tpl=README.md
+          TOKEN: ${{ secrets.ACTIONS }}
