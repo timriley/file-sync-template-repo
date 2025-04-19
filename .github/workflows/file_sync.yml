@@ -19,4 +19,4 @@ jobs:
             timriley/file-sync-target-repo@main
           FILES: |
             sync/README.md.tpl=README.md
-          TOKEN: ${{ secrets.ACTIONS }}
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
